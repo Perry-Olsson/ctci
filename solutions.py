@@ -22,7 +22,7 @@ class Node:
 
 head = Node(3)
 
-restNums = [5, 8, 5, 10, 2, 1]
+restNums = [5, 8, 5, 10, 2, 1, 3]
 
 current = head
 for num in restNums:
@@ -64,7 +64,7 @@ def checkForLoopRunner(head):
     return None
   slow, fast = head.next, head.next.next
   while slow != fast:
-    if fast.next is None:
+    if fast is None or fast.next is None:
       return None
     slow = slow.next
     fast = fast.next.next
@@ -80,7 +80,7 @@ index = 0
 loopNode = None
 current = head
 while current.next is not None:
-  if index == 4:
+  if index == 3:
     loopNode = current
   index += 1
   current = current.next
