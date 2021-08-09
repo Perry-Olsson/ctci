@@ -4,23 +4,55 @@
 
 using namespace std;
 
+class Stack {
+  int *array;
+  int top;
+  public:
+    int capacity;
+    Stack(int capacity) : capacity(capacity), top(-1) {
+      int arr[capacity];
+      array = arr;
+    }
+
+    int push(int val) {
+      if (top == capacity - 1) {
+        throw "Stack overflow";
+      }
+
+      array[++top] = val;
+      return top;
+    }
+
+    int peek() {
+      if (isEmpty())
+        throw "Stack is empty";
+      return array[top];
+    }
+
+    int pop() {
+      if (isEmpty()) 
+        throw "Stack is empty";
+      int data = array[top];
+      return --top;
+    }
+
+    bool isEmpty() {
+      return top == -1;
+    }
+};
+
 int main() {
-  int nums[10] = {3, 5, 4, 3, 2, 1, 5, 6, 3 , 4};
-  LinkedList *  myList = new LinkedList(nums[0]);
+
+  Stack* myStack = new Stack(10);
+
+  myStack->push(4);
+  myStack->push(5);
+  myStack->push(10);
+  myStack->pop();
+  myStack->pop();
 
 
-  for (int i = 1; i < sizeof(nums)/sizeof(nums[0]); i++) {
-    myList->add(nums[i]);
-  }
 
-  cout << myList->remove() << endl;
-  printf("\n");
-  Node* current = myList->head;
-  while (current != nullptr) {
-    printf("%i\n", current->value);
-    current = current->next;
-  }
-
-  delete myList;
+  cout << myStack->peek() << endl;
   return 0;
 }
