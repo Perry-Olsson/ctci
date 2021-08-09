@@ -59,13 +59,28 @@ def checkForLoop(head):
 
   return None #no loop
 
+def checkForLoopRunner(head):
+  if head.next is None:
+    return None
+  slow, fast = head.next, head.next.next
+  while slow != fast:
+    if fast.next is None:
+      return None
+    slow = slow.next
+    fast = fast.next.next
+  slow = head
+  while slow != fast:
+    slow = slow.next
+    fast = fast.next
+  return slow
+
 #add loop
 
 index = 0
 loopNode = None
 current = head
 while current.next is not None:
-  if index == 3:
+  if index == 4:
     loopNode = current
   index += 1
   current = current.next
@@ -73,5 +88,8 @@ while current.next is not None:
 current.next = loopNode
 
 
-
-print(head)
+val = checkForLoopRunner(head)
+if val is not None:
+  print(val.value)
+else:
+  print(val)
