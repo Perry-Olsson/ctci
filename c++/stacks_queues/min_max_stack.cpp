@@ -61,12 +61,15 @@ int main() {
   stack->push(5);
   stack->pop();
   stack->push(2);
+  stack->pop();
+  stack->pop();
+  stack->pop();
   cout << "min: " << stack->get_min() << endl;
   cout << "max: "<< stack->get_max() << endl;
   cout << "top: " << stack->peek() << endl;
   return 0;
   } catch(const char* msg) {
-    cout << msg << endl;
+    cout << "Error: " << msg << endl;
   }
 }
 

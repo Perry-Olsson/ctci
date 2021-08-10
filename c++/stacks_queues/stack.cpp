@@ -1,6 +1,4 @@
 #include <iostream>
-#include "string_array_solutions.h"
-#include "linked_lists-solutions.h"
 
 using namespace std;
 
@@ -40,19 +38,3 @@ class Stack {
       return top == -1;
     }
 };
-
-int main() {
-
-  Stack* myStack = new Stack(10);
-
-  myStack->push(4);
-  myStack->push(5);
-  myStack->push(10);
-  myStack->pop();
-  myStack->pop();
-
-
-
-  cout << myStack->peek() << endl;
-  return 0;
-}

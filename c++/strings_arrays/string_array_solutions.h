@@ -1,3 +1,5 @@
+#ifndef STRING_ARRAY_SOLUTIONS_H
+#define STRING_ARRAY_SOLUTIONS_H
 #include <iostream>
 #include <bits/stdc++.h>
 
@@ -79,3 +81,4 @@ char *  URLify(char * url) {
   return url;
 }
 
+#endif
